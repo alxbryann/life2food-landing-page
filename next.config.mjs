@@ -6,6 +6,8 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
+  // Configuración para deployment con Docker (standalone)
+  output: 'standalone',
 }
 
 export default nextConfig
