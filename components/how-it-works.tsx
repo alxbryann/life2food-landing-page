@@ -24,30 +24,32 @@ export function HowItWorks() {
   ]
 
   return (
-    <section id="how-it-works" className="py-20 lg:py-32 bg-muted/30">
+    <section id="how-it-works" className="py-20 lg:py-32 bg-muted/30" aria-labelledby="how-it-works-heading">
       <div className="container mx-auto px-4 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold mb-4 text-balance">Cómo funciona life2food</h2>
+        <header className="text-center max-w-3xl mx-auto mb-16">
+          <h2 id="how-it-works-heading" className="text-4xl lg:text-5xl font-bold mb-4 text-balance">Cómo funciona life2food</h2>
           <p className="text-lg text-muted-foreground text-pretty">
             Reducir el desperdicio de alimentos nunca ha sido tan fácil. Únete a miles de consumidores conscientes
             marcando la diferencia.
           </p>
-        </div>
+        </header>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <ol className="grid md:grid-cols-3 gap-8" role="list">
           {steps.map((step, index) => (
-            <Card key={index} className="relative p-8 border-2 hover:border-primary transition-colors bg-card">
-              <div className="mb-6">
-                <div className="flex items-center justify-center h-14 w-14 rounded-2xl bg-primary/10">
-                  <step.icon className="h-7 w-7 text-primary" />
+            <li key={index}>
+              <Card className="relative p-8 border-2 hover:border-primary transition-colors bg-card h-full">
+                <div className="mb-6">
+                  <div className="flex items-center justify-center h-14 w-14 rounded-2xl bg-primary/10" aria-hidden="true">
+                    <step.icon className="h-7 w-7 text-primary" />
+                  </div>
                 </div>
-              </div>
-              <div className="absolute top-8 right-8 text-6xl font-bold text-muted opacity-20">{step.number}</div>
-              <h3 className="text-2xl font-semibold mb-3">{step.title}</h3>
-              <p className="text-muted-foreground leading-relaxed">{step.description}</p>
-            </Card>
+                <div className="absolute top-8 right-8 text-6xl font-bold text-muted opacity-20" aria-hidden="true">{step.number}</div>
+                <h3 className="text-2xl font-semibold mb-3">{step.title}</h3>
+                <p className="text-muted-foreground leading-relaxed">{step.description}</p>
+              </Card>
+            </li>
           ))}
-        </div>
+        </ol>
       </div>
     </section>
   )

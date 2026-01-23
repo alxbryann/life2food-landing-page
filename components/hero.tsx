@@ -3,12 +3,12 @@ import { ArrowRight, Play } from "lucide-react"
 
 export function Hero() {
   return (
-    <section className="relative pt-32 pb-20 lg:pt-40 lg:pb-32 overflow-hidden">
+    <section className="relative pt-32 pb-20 lg:pt-40 lg:pb-32 overflow-hidden" aria-label="Hero principal">
       <div className="container mx-auto px-4 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          <div className="space-y-8">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium">
-              <span className="relative flex h-2 w-2">
+          <header className="space-y-8">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium" role="status" aria-live="polite">
+              <span className="relative flex h-2 w-2" aria-hidden="true">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
               </span>
@@ -40,27 +40,29 @@ export function Hero() {
                 <div className="text-3xl font-bold text-foreground">50K+</div>
                 <div className="text-sm text-muted-foreground">Comidas Salvadas</div>
               </div>
-              <div className="h-12 w-px bg-border"></div>
+              <div className="h-12 w-px bg-border" aria-hidden="true"></div>
               <div>
                 <div className="text-3xl font-bold text-foreground">200+</div>
                 <div className="text-sm text-muted-foreground">Tiendas Asociadas</div>
               </div>
-              <div className="h-12 w-px bg-border"></div>
+              <div className="h-12 w-px bg-border" aria-hidden="true"></div>
               <div>
                 <div className="text-3xl font-bold text-foreground">15K</div>
                 <div className="text-sm text-muted-foreground">Usuarios Activos</div>
               </div>
             </div>
-          </div>
+          </header>
 
-          <div className="relative">
-            <div className="absolute inset-0 bg-primary/5 rounded-3xl blur-3xl"></div>
+          <figure className="relative">
+            <div className="absolute inset-0 bg-primary/5 rounded-3xl blur-3xl" aria-hidden="true"></div>
             <img
               src="/fresh-produce-and-food-items-in-sustainable-packag.jpg"
-              alt="Comida fresca rescatada del desperdicio"
+              alt="Comida fresca rescatada del desperdicio - Frutas y verduras frescas en empaque sostenible"
               className="relative rounded-2xl shadow-2xl w-full aspect-square object-cover"
+              loading="eager"
+              fetchPriority="high"
             />
-          </div>
+          </figure>
         </div>
       </div>
     </section>
