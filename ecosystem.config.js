@@ -10,6 +10,9 @@ module.exports = {
       env: {
         NODE_ENV: 'production',
         PORT: 3000,
+        // URL del backend para que /api/waitlist/count funcione en producción
+        API_URL: 'https://api.life2food.com',
+        NEXT_PUBLIC_API_URL: 'https://api.life2food.com',
       },
       error_file: './logs/err.log',
       out_file: './logs/out.log',

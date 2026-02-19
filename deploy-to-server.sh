@@ -65,7 +65,7 @@ echo -e "${GREEN}✅ Archivos subidos (incluyendo .env)${NC}"
 echo -e "${YELLOW}🔄 Reiniciando aplicación en el servidor...${NC}"
 ssh -i "$SSH_KEY" ${SERVER_USER}@${SERVER_HOST} << 'ENDSSH'
   cd ~/life2food-landing-page
-  pm2 restart life2food || pm2 start ecosystem.config.js
+  pm2 restart life2food --update-env || pm2 start ecosystem.config.js
   pm2 save
   echo "✅ Aplicación reiniciada"
 ENDSSH
