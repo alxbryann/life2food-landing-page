@@ -1,69 +1,79 @@
-import { Button } from "@/components/ui/button"
-import { ArrowRight, Play } from "lucide-react"
+"use client"
 
 export function Hero() {
   return (
-    <section className="relative pt-32 pb-20 lg:pt-40 lg:pb-32 overflow-hidden" aria-label="Hero principal">
+    <section className="relative pt-32 pb-0 lg:pt-40 overflow-hidden" aria-label="Hero principal">
       <div className="container mx-auto px-4 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          <header className="space-y-8">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium" role="status" aria-live="polite">
-              <span className="relative flex h-2 w-2" aria-hidden="true">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
-              </span>
-              Únete al movimiento
-            </div>
+        {/* Encabezado: badge + título + descripción + un botón */}
+        <header className="text-center max-w-4xl mx-auto space-y-6">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-medium" role="status" aria-live="polite">
+            <span className="relative flex h-2 w-2" aria-hidden="true">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75" />
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-primary" />
+            </span>
+            Próximamente
+          </div>
 
-            <h1 className="text-5xl lg:text-7xl font-bold tracking-tight text-balance">
-              Convierte el desperdicio de alimentos en oportunidad
-            </h1>
+          <h1 className="text-5xl lg:text-7xl font-bold tracking-tight text-balance">
+            Convierte el desperdicio de alimentos en oportunidad
+          </h1>
 
-            <p className="text-xl text-muted-foreground leading-relaxed text-pretty">
-              Conéctate con restaurantes, supermercados y granjas locales para rescatar alimentos excedentes. Ahorra
-              dinero mientras generas un impacto positivo en nuestro planeta.
-            </p>
+          <p className="text-xl text-muted-foreground leading-relaxed text-pretty max-w-2xl mx-auto">
+            Conéctate con restaurantes, supermercados y granjas locales para rescatar alimentos excedentes. Ahorra
+            dinero mientras generas un impacto positivo en nuestro planeta.
+          </p>
+        </header>
 
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 text-base">
-                Empezar a Salvar Comida
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-              <Button size="lg" variant="outline" className="text-base bg-transparent">
-                <Play className="mr-2 h-5 w-5" />
-                Ver Cómo Funciona
-              </Button>
-            </div>
-
-            <div className="flex items-center gap-8 pt-4">
-              <div>
-                <div className="text-3xl font-bold text-foreground">50K+</div>
-                <div className="text-sm text-muted-foreground">Comidas Salvadas</div>
-              </div>
-              <div className="h-12 w-px bg-border" aria-hidden="true"></div>
-              <div>
-                <div className="text-3xl font-bold text-foreground">200+</div>
-                <div className="text-sm text-muted-foreground">Tiendas Asociadas</div>
-              </div>
-              <div className="h-12 w-px bg-border" aria-hidden="true"></div>
-              <div>
-                <div className="text-3xl font-bold text-foreground">15K</div>
-                <div className="text-sm text-muted-foreground">Usuarios Activos</div>
+        {/* Mockups debajo del título — superpuestos, centro al frente */}
+        <figure className="relative flex items-center justify-center min-h-[380px] lg:min-h-[460px] mt-12 lg:mt-16">
+          <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+            <div className="w-[85%] h-[75%] max-w-lg rounded-full bg-primary/8 blur-2xl" aria-hidden="true" />
+          </div>
+          <div className="relative w-full max-w-2xl mx-auto h-[400px] sm:h-[440px] lg:h-[500px] flex items-end justify-center">
+            {/* Izquierda: atrás, rotado -12deg, apoyado en la misma base */}
+            <div
+              className="absolute left-1/2 bottom-0 w-[170px] sm:w-[200px] lg:w-[240px] rounded-2xl overflow-hidden shadow-2xl ring-1 ring-black/5 z-0 origin-bottom"
+              style={{ transform: "translate(calc(-100% - 20px), 0) rotate(-12deg)" }}
+            >
+              <div className="aspect-[9/16] w-full overflow-hidden rounded-2xl">
+                <img
+                  src="/WhatsApp Image 2026-02-18 at 08.05.42.jpeg"
+                  alt="Vista previa de la app life2food - pantalla principal"
+                  className="w-full h-full object-cover object-top rounded-2xl"
+                  loading="eager"
+                  fetchPriority="high"
+                />
               </div>
             </div>
-          </header>
-
-          <figure className="relative">
-            <div className="absolute inset-0 bg-primary/5 rounded-3xl blur-3xl" aria-hidden="true"></div>
-            <img
-              src="/fresh-produce-and-food-items-in-sustainable-packag.jpg"
-              alt="Comida fresca rescatada del desperdicio - Frutas y verduras frescas en empaque sostenible"
-              className="relative rounded-2xl shadow-2xl w-full aspect-square object-cover"
-              loading="eager"
-              fetchPriority="high"
-            />
-          </figure>
-        </div>
+            {/* Centro: protagonista */}
+            <div className="relative z-10 w-[200px] sm:w-[240px] lg:w-[280px] flex-shrink-0 rounded-2xl overflow-hidden shadow-2xl ring-1 ring-black/10 transition-transform duration-300 hover:scale-[1.02]">
+              <div className="aspect-[9/16] w-full overflow-hidden rounded-2xl">
+                <img
+                  src="/Simulator Screenshot - iPhone 16 - 2026-02-18 at 20.47.50.png"
+                  alt="Vista previa de la app life2food - iPhone"
+                  className="w-full h-full object-cover object-top rounded-2xl"
+                  loading="eager"
+                  fetchPriority="high"
+                />
+              </div>
+            </div>
+            {/* Derecha: atrás, rotado +12deg, apoyado en la misma base */}
+            <div
+              className="absolute left-1/2 bottom-0 w-[170px] sm:w-[200px] lg:w-[240px] rounded-2xl overflow-hidden shadow-2xl ring-1 ring-black/5 z-0 origin-bottom"
+              style={{ transform: "translate(20px, 0) rotate(12deg)" }}
+            >
+              <div className="aspect-[9/16] w-full overflow-hidden rounded-2xl">
+                <img
+                  src="/WhatsApp Image 2026-02-18 at 08.05.42 (1).jpeg"
+                  alt="Vista previa de la app life2food - segunda pantalla"
+                  className="w-full h-full object-cover object-top rounded-2xl"
+                  loading="eager"
+                  fetchPriority="high"
+                />
+              </div>
+            </div>
+          </div>
+        </figure>
       </div>
     </section>
   )

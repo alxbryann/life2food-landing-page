@@ -32,6 +32,13 @@ if [ ! -f "$SSH_KEY" ]; then
   exit 1
 fi
 
+# Verificar que existe .env
+if [ ! -f ".env" ]; then
+  echo -e "${RED}❌ Error: No se encontró el archivo .env${NC}"
+  echo "Crea un archivo .env con NEXT_PUBLIC_API_URL y las variables necesarias"
+  exit 1
+fi
+
 # 1. Construir el proyecto
 echo -e "${YELLOW}📦 Construyendo proyecto Next.js...${NC}"
 npm run build
@@ -43,13 +50,16 @@ fi
 
 echo -e "${GREEN}✅ Build completado${NC}"
 
-# 2. Subir archivos al servidor
+# 2. Subir archivos al servidor (incluyendo .env)
 echo -e "${YELLOW}📤 Subiendo archivos al servidor...${NC}"
 rsync -avz --exclude 'node_modules' --exclude '.git' --exclude '.next/cache' \
   -e "ssh -i $SSH_KEY" \
   . ${SERVER_USER}@${SERVER_HOST}:${SERVER_PATH}/
 
-echo -e "${GREEN}✅ Archivos subidos${NC}"
+# Copiar .env explícitamente para asegurar que llegue al servidor
+scp -i "$SSH_KEY" .env ${SERVER_USER}@${SERVER_HOST}:${SERVER_PATH}/.env
+
+echo -e "${GREEN}✅ Archivos subidos (incluyendo .env)${NC}"
 
 # 3. Reiniciar la aplicación en el servidor
 echo -e "${YELLOW}🔄 Reiniciando aplicación en el servidor...${NC}"

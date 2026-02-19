@@ -20,25 +20,12 @@ export function Header() {
             >
               Cómo Funciona
             </a>
-            <a
-              href="#impact"
-              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-            >
-              Nuestro Impacto
-            </a>
-            <a
-              href="#features"
-              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-            >
-              Características
-            </a>
           </nav>
 
           <div className="flex items-center gap-3">
-            <Button variant="ghost" className="hidden sm:inline-flex">
-              Iniciar Sesión
+            <Button asChild className="bg-primary text-primary-foreground hover:bg-primary/90">
+              <a href="#lista-espera">Unirse a la lista de espera</a>
             </Button>
-            <Button className="bg-primary text-primary-foreground hover:bg-primary/90">Comenzar</Button>
           </div>
         </div>
       </div>
