@@ -35,25 +35,53 @@ export function Hero() {
               className="absolute left-1/2 bottom-0 w-[170px] sm:w-[200px] lg:w-[240px] rounded-2xl overflow-hidden shadow-2xl ring-1 ring-black/5 z-0 origin-bottom"
               style={{ transform: "translate(calc(-100% - 20px), 0) rotate(-12deg)" }}
             >
-              <div className="aspect-[9/16] w-full overflow-hidden rounded-2xl">
+              <div className="transition-transform duration-300 hover:scale-[1.02] origin-bottom">
+              <div
+                className="relative aspect-[9/16] w-full overflow-hidden rounded-2xl"
+                onContextMenu={(e) => e.preventDefault()}
+                onDragStart={(e) => e.preventDefault()}
+              >
+                <div
+                  className="absolute inset-0 z-10 cursor-default"
+                  onContextMenu={(e) => e.preventDefault()}
+                  onDragStart={(e) => e.preventDefault()}
+                  aria-hidden
+                />
                 <img
                   src="/WhatsApp Image 2026-02-18 at 08.05.42.jpeg"
                   alt="Vista previa de la app life2food - pantalla principal"
-                  className="w-full h-full object-cover object-top rounded-2xl"
+                  className="w-full h-full object-cover object-top rounded-2xl select-none"
                   loading="eager"
                   fetchPriority="high"
+                  draggable={false}
+                  onContextMenu={(e) => e.preventDefault()}
+                  onDragStart={(e) => e.preventDefault()}
                 />
+              </div>
               </div>
             </div>
             {/* Centro: protagonista */}
             <div className="relative z-10 w-[200px] sm:w-[240px] lg:w-[280px] flex-shrink-0 rounded-2xl overflow-hidden shadow-2xl ring-1 ring-black/10 transition-transform duration-300 hover:scale-[1.02]">
-              <div className="aspect-[9/16] w-full overflow-hidden rounded-2xl">
+              <div
+                className="relative aspect-[9/16] w-full overflow-hidden rounded-2xl"
+                onContextMenu={(e) => e.preventDefault()}
+                onDragStart={(e) => e.preventDefault()}
+              >
+                <div
+                  className="absolute inset-0 z-10 cursor-default"
+                  onContextMenu={(e) => e.preventDefault()}
+                  onDragStart={(e) => e.preventDefault()}
+                  aria-hidden
+                />
                 <img
                   src="/Simulator Screenshot - iPhone 16 - 2026-02-18 at 20.47.50.png"
                   alt="Vista previa de la app life2food - iPhone"
-                  className="w-full h-full object-cover object-top rounded-2xl"
+                  className="w-full h-full object-cover object-top rounded-2xl select-none"
                   loading="eager"
                   fetchPriority="high"
+                  draggable={false}
+                  onContextMenu={(e) => e.preventDefault()}
+                  onDragStart={(e) => e.preventDefault()}
                 />
               </div>
             </div>
@@ -62,14 +90,29 @@ export function Hero() {
               className="absolute left-1/2 bottom-0 w-[170px] sm:w-[200px] lg:w-[240px] rounded-2xl overflow-hidden shadow-2xl ring-1 ring-black/5 z-0 origin-bottom"
               style={{ transform: "translate(20px, 0) rotate(12deg)" }}
             >
-              <div className="aspect-[9/16] w-full overflow-hidden rounded-2xl">
+              <div className="transition-transform duration-300 hover:scale-[1.02] origin-bottom">
+              <div
+                className="relative aspect-[9/16] w-full overflow-hidden rounded-2xl"
+                onContextMenu={(e) => e.preventDefault()}
+                onDragStart={(e) => e.preventDefault()}
+              >
+                <div
+                  className="absolute inset-0 z-10 cursor-default"
+                  onContextMenu={(e) => e.preventDefault()}
+                  onDragStart={(e) => e.preventDefault()}
+                  aria-hidden
+                />
                 <img
                   src="/WhatsApp Image 2026-02-18 at 08.05.42 (1).jpeg"
                   alt="Vista previa de la app life2food - segunda pantalla"
-                  className="w-full h-full object-cover object-top rounded-2xl"
+                  className="w-full h-full object-cover object-top rounded-2xl select-none"
                   loading="eager"
                   fetchPriority="high"
+                  draggable={false}
+                  onContextMenu={(e) => e.preventDefault()}
+                  onDragStart={(e) => e.preventDefault()}
                 />
+              </div>
               </div>
             </div>
           </div>
