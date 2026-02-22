@@ -1,11 +1,31 @@
 import { Leaf } from "lucide-react"
 
 export function Footer() {
-  const footerLinks = {
-    Producto: ["Cómo Funciona", "Para Negocios", "Precios", "Descargar App"],
-    Empresa: ["Sobre Nosotros", "Nuestra Misión", "Carreras", "Kit de Prensa"],
-    Recursos: ["Blog", "Centro de Ayuda", "Comunidad", "Contáctanos"],
-    Legal: ["Política de Privacidad", "Términos de Servicio", "Política de Cookies", "Directrices"],
+  const footerLinks: Record<string, { label: string; href: string }[]> = {
+    Producto: [
+      { label: "Cómo Funciona", href: "#how-it-works" },
+      { label: "Para Negocios", href: "#" },
+      { label: "Precios", href: "#" },
+      { label: "Descargar App", href: "#" },
+    ],
+    Empresa: [
+      { label: "Sobre Nosotros", href: "#" },
+      { label: "Nuestra Misión", href: "#" },
+      { label: "Carreras", href: "#" },
+      { label: "Kit de Prensa", href: "#" },
+    ],
+    Recursos: [
+      { label: "Blog", href: "#" },
+      { label: "Centro de Ayuda", href: "#" },
+      { label: "Comunidad", href: "#" },
+      { label: "Contáctanos", href: "#" },
+    ],
+    Legal: [
+      { label: "Política de Privacidad", href: "#" },
+      { label: "Términos y Condiciones", href: "/terminos" },
+      { label: "Política de Cookies", href: "#" },
+      { label: "Directrices", href: "#" },
+    ],
   }
 
   return (
@@ -29,9 +49,9 @@ export function Footer() {
               <h3 className="font-semibold mb-4">{category}</h3>
               <ul className="space-y-3">
                 {links.map((link) => (
-                  <li key={link}>
-                    <a href="#" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                      {link}
+                  <li key={link.label}>
+                    <a href={link.href} className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                      {link.label}
                     </a>
                   </li>
                 ))}
