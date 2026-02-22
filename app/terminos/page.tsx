@@ -174,7 +174,7 @@ export default function TerminosPage() {
                 </ul>
               </section>
 
-              <section>
+              <section id="proteccion-datos">
                 <h2 className="text-lg font-semibold text-foreground border-b-2 border-primary pb-2 mb-4">8. Protección de datos personales</h2>
                 <h3 className="text-base font-semibold text-foreground mt-5 mb-2">8.1 Recopilación de datos</h3>
                 <p className="mb-2">Life2Food recopila y procesa datos personales incluyendo:</p>
