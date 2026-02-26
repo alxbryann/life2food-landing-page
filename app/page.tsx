@@ -1,8 +1,11 @@
 import { Header } from "@/components/header"
 import { Hero } from "@/components/hero"
+import { Features } from "@/components/features"
+import { BogotaSection } from "@/components/bogota"
 import { HowItWorks } from "@/components/how-it-works"
 import { Waitlist } from "@/components/waitlist"
 import { Footer } from "@/components/footer"
+import { BackgroundEffects } from "@/components/background-effects"
 
 export default function Home() {
   const jsonLd = {
@@ -94,9 +97,12 @@ export default function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
+      <BackgroundEffects />
       <main className="min-h-screen">
         <Header />
         <Hero />
+        <Features />
+        <BogotaSection />
         <HowItWorks />
         <Waitlist />
         <Footer />

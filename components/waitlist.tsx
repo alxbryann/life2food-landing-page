@@ -1,8 +1,6 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
 import { CheckCircle2, Loader2 } from "lucide-react"
 
 function getApiBase() {
@@ -52,97 +50,90 @@ export function Waitlist() {
   }
 
   return (
-    <section
-      id="lista-espera"
-      className="relative py-24 lg:py-36 scroll-mt-20 overflow-hidden"
-      aria-labelledby="waitlist-heading"
-    >
-      {/* Fondo que atrae la atención */}
-      <div className="absolute inset-0 bg-primary/10" />
-      <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-primary/15 to-primary/10" />
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[min(100%,800px)] h-96 bg-primary/20 rounded-full blur-3xl -translate-y-1/2 pointer-events-none" />
+    <section id="waitlist" className="py-24 relative z-10 bg-[var(--subtle)]">
+      <div className="max-w-4xl mx-auto px-6">
+        <div className="reveal-scale active bg-[var(--bg-elevated)] border border-[var(--border)] rounded-3xl p-8 md:p-12 text-center relative overflow-hidden shadow-xl">
+          <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-[var(--accent)] via-[var(--accent-warm)] to-[var(--accent)]"></div>
+          <div className="absolute -top-24 -right-24 w-48 h-48 rounded-full bg-[var(--accent)]/10 blur-3xl"></div>
+          <div className="absolute -bottom-24 -left-24 w-48 h-48 rounded-full bg-[var(--accent-warm)]/10 blur-3xl"></div>
 
-      <div className="container relative mx-auto px-4 lg:px-8">
-        <div className="max-w-2xl mx-auto text-center space-y-10">
-          {/* Número gigante como foco principal */}
-          <div className="space-y-2">
-            <p className="text-sm font-semibold uppercase tracking-widest text-primary">
-              Ya se unieron
-            </p>
-            <div className="min-h-[5rem] flex items-center justify-center">
-              {waitlistCount === null ? (
-                <span className="text-5xl lg:text-7xl font-black tabular-nums text-primary/60 animate-pulse">
-                  —
-                </span>
-              ) : (
-                <span className="text-6xl sm:text-7xl lg:text-8xl xl:text-9xl font-black tabular-nums text-primary drop-shadow-md">
-                  {waitlistCount.toLocaleString("es")}
-                </span>
-              )}
-            </div>
-            <p className="text-lg font-semibold text-foreground">
-              {waitlistCount === null
-                ? "personas"
-                : waitlistCount === 1
-                  ? "persona en la lista"
-                  : "personas en la lista"}
-            </p>
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--accent)]/10 border border-[var(--accent)]/20 text-sm mb-6 relative">
+            <span className="w-2 h-2 rounded-full bg-[var(--accent)] animate-pulse"></span>
+            <span className="text-[var(--accent-dark)] font-medium">Lanzamiento Q1 2026</span>
           </div>
 
-          <div>
-            <h2 id="waitlist-heading" className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight">
-              Únete a la lista de espera
-            </h2>
-            <p className="mt-4 text-lg text-muted-foreground max-w-lg mx-auto">
-              Sé el primero en saber cuando life2food esté disponible. Sin spam, solo novedades.
-            </p>
-          </div>
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-[var(--fg)] relative">
+            Sé parte de la{" "}
+            <span className="bg-gradient-to-r from-[var(--accent)] to-[#3dd68c] bg-clip-text text-transparent">revolución</span>
+          </h2>
+
+          <p className="text-xl text-[var(--muted)] mb-10 max-w-xl mx-auto relative">
+            Únete a nuestra lista de espera y sé de los primeros en acceder a ofertas exclusivas cuando lancemos
+          </p>
 
           {status === "success" ? (
-            <div className="flex flex-col items-center gap-3 rounded-2xl border-2 border-primary/30 bg-primary/10 p-10 shadow-lg">
-              <CheckCircle2 className="h-14 w-14 text-primary" aria-hidden />
-              <p className="text-xl font-semibold">¡Listo! Te avisaremos cuando lancemos.</p>
-              <p className="text-sm text-muted-foreground">
-                Revisa tu bandeja de entrada (y spam) para confirmar.
-              </p>
+            <div className="mt-6 p-4 rounded-xl bg-[var(--accent)]/10 border border-[var(--accent)]/20 relative animate-in fade-in zoom-in duration-500">
+              <div className="flex items-center justify-center gap-3" style={{ color: "var(--accent-dark)" }}>
+                <CheckCircle2 className="w-6 h-6" />
+                <span className="font-semibold">Estás en la lista. Pronto tendrás noticias.</span>
+              </div>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto">
-              <Input
-                type="email"
-                placeholder="tu@email.com"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                disabled={status === "loading"}
-                required
-                className="h-14 flex-1 min-w-0 text-base rounded-xl border-2 border-primary/30 focus-visible:ring-primary"
-                aria-label="Correo electrónico"
-              />
-              <Button
-                type="submit"
-                disabled={status === "loading"}
-                size="lg"
-                className="h-14 px-8 text-base font-semibold bg-primary text-primary-foreground hover:bg-primary/90 shrink-0 rounded-xl shadow-lg shadow-primary/25"
-              >
-                {status === "loading" ? (
-                  <>
-                    <Loader2 className="h-5 w-5 animate-spin mr-2" aria-hidden />
-                    Enviando…
-                  </>
-                ) : (
-                  "Unirse ahora"
-                )}
-              </Button>
+            <form onSubmit={handleSubmit} className="max-w-md mx-auto space-y-4 relative">
+              <div className="flex flex-col sm:flex-row gap-3">
+                <input
+                  type="email"
+                  placeholder="Tu correo electrónico"
+                  className="input-field flex-1"
+                  required
+                  aria-label="Correo electrónico"
+                  value={email}
+                  disabled={status === "loading"}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+                <button
+                  type="submit"
+                  className="btn-primary whitespace-nowrap flex items-center justify-center"
+                  disabled={status === "loading"}
+                >
+                  {status === "loading" ? (
+                    <>
+                      <Loader2 className="w-5 h-5 mr-2 animate-spin" />
+                      Enviando...
+                    </>
+                  ) : (
+                    "Unirme ahora"
+                  )}
+                </button>
+              </div>
+              <p className="text-xs text-[var(--muted)]">
+                Sin spam. Solo noticias importantes sobre el lanzamiento.
+              </p>
+              {status === "error" && message && (
+                <p className="text-sm text-red-500 font-medium" role="alert">
+                  {message}
+                </p>
+              )}
             </form>
           )}
 
-          {status === "error" && message && (
-            <p className="text-sm text-destructive font-medium" role="alert">
-              {message}
-            </p>
-          )}
+          <div className="mt-10 pt-8 border-t border-[var(--border)] relative">
+            <p className="text-sm text-[var(--muted)] mb-4">Personas que ya se unieron</p>
+            <div className="flex items-center justify-center">
+              <div className="flex -space-x-3">
+                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-orange-400 to-pink-500 border-2 border-white flex items-center justify-center text-xs font-bold text-white z-40">MC</div>
+                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-400 to-purple-500 border-2 border-white flex items-center justify-center text-xs font-bold text-white z-30">JD</div>
+                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-green-400 to-teal-500 border-2 border-white flex items-center justify-center text-xs font-bold text-white z-20">AR</div>
+                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-yellow-400 to-orange-500 border-2 border-white flex items-center justify-center text-xs font-bold text-white z-10">LS</div>
+                <div className="w-10 h-10 rounded-full bg-[var(--subtle)] border-2 border-white flex items-center justify-center text-xs font-bold z-0" style={{ color: "var(--accent-dark)" }}>
+                  +<span className="counter tabular-nums">{waitlistCount === null ? "..." : (waitlistCount > 4 ? waitlistCount - 4 : 0).toLocaleString("es")}</span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
   )
 }
+

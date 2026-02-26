@@ -1,49 +1,50 @@
-import { Search, ShoppingBag, Heart } from "lucide-react"
-import { Card } from "@/components/ui/card"
-
 export function HowItWorks() {
   const steps = [
     {
       number: "1",
-      icon: Search,
-      title: "Descubre",
-      description: "Restaurantes, panaderías y supermercados cerca de ti con excedentes.",
+      title: "Explora",
+      description: "Abre la app y descubre restaurantes cercanos con packs sorpresa disponibles",
     },
     {
       number: "2",
-      icon: ShoppingBag,
-      title: "Reserva y recoge",
-      description: "Precios con descuento. Tú eliges cuándo recoger.",
+      title: "Reserva",
+      description: "Elige tu pack favorito y reserva pagando directamente en la app",
     },
     {
       number: "3",
-      icon: Heart,
-      title: "Ahorra e impacta",
-      description: "Buenas comidas, menos desperdicio, apoyo a lo local.",
+      title: "Recoge",
+      description: "Ve al restaurante en el horario indicado y muestra tu reserva",
+    },
+    {
+      number: "4",
+      title: "Disfruta",
+      description: "Lleva a casa comida deliciosa a un precio increíble y salva el planeta",
     },
   ]
 
   return (
-    <section id="how-it-works" className="py-20 lg:py-32 bg-muted/30" aria-labelledby="how-it-works-heading">
-      <div className="container mx-auto px-4 lg:px-8">
-        <header className="text-center max-w-2xl mx-auto mb-16">
-          <h2 id="how-it-works-heading" className="text-4xl lg:text-5xl font-bold mb-3 text-balance">Cómo funciona life2food</h2>
-          <p className="text-muted-foreground">En 3 pasos: descubre, reserva, recoge.</p>
+    <section id="como-funciona" className="py-24 relative z-10 bg-[var(--bg)]" aria-labelledby="how-it-works-heading">
+      <div className="max-w-7xl mx-auto px-6">
+        <header className="text-center mb-16 reveal">
+          <h2 id="how-it-works-heading" className="text-4xl md:text-5xl font-bold mb-6">
+            Cómo funciona
+          </h2>
+          <p className="text-xl text-[var(--muted)] max-w-2xl mx-auto text-balance">
+            En 4 pasos simples, pasas de tener hambre a disfrutar comida increíble por una fracción del precio
+          </p>
         </header>
 
-        <ol className="grid md:grid-cols-3 gap-8" role="list">
+        <ol className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 stagger-children" role="list">
           {steps.map((step, index) => (
-            <li key={index}>
-              <Card className="relative p-8 border-2 hover:border-primary transition-colors bg-card h-full">
-                <div className="mb-6">
-                  <div className="flex items-center justify-center h-14 w-14 rounded-2xl bg-primary/10" aria-hidden="true">
-                    <step.icon className="h-7 w-7 text-primary" />
-                  </div>
-                </div>
-                <div className="absolute top-8 right-8 text-6xl font-bold text-muted opacity-20" aria-hidden="true">{step.number}</div>
-                <h3 className="text-2xl font-semibold mb-2">{step.title}</h3>
-                <p className="text-muted-foreground text-sm">{step.description}</p>
-              </Card>
+            <li key={index} className="step-card group h-full">
+              <div
+                className="w-12 h-12 rounded-full bg-gradient-to-br from-[var(--accent)] to-[var(--accent-dark)] flex items-center justify-center text-white font-bold text-xl mb-6 group-hover:scale-110 transition-transform relative z-10"
+                aria-hidden="true"
+              >
+                {step.number}
+              </div>
+              <h3 className="text-lg font-bold mb-3 relative z-10">{step.title}</h3>
+              <p className="text-[var(--muted)] text-sm leading-relaxed relative z-10">{step.description}</p>
             </li>
           ))}
         </ol>
@@ -51,3 +52,4 @@ export function HowItWorks() {
     </section>
   )
 }
+
