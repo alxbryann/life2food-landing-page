@@ -38,7 +38,7 @@ export function Hero() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <Link href="#lista-espera" className="btn-primary flex items-center justify-center gap-2 w-full sm:w-auto">
+              <Link href="#waitlist" className="btn-primary flex items-center justify-center gap-2 w-full sm:w-auto">
                 Reserva tu lugar
                 <ArrowRight className="size-5" />
               </Link>
