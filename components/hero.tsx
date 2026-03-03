@@ -42,9 +42,6 @@ export function Hero() {
                 Reserva tu lugar
                 <ArrowRight className="size-5" />
               </Link>
-              <Link href="#how-it-works" className="btn-secondary text-center flex items-center justify-center w-full sm:w-auto">
-                Descubre cómo funciona
-              </Link>
             </div>
 
             <div className="flex flex-wrap items-center gap-6 sm:gap-8 pt-6">
@@ -66,7 +63,7 @@ export function Hero() {
               <div className="w-px h-14 bg-[var(--border)] hidden sm:block"></div>
               <div className="text-center sm:text-left">
                 <div className="text-3xl font-bold" style={{ color: "var(--accent-dark)" }}>50+</div>
-                <div className="text-sm text-[var(--muted)]">Aliados listos</div>
+                <div className="text-sm text-[var(--muted)]">Cada vez más aliados</div>
               </div>
             </div>
           </div>

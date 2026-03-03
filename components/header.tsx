@@ -23,7 +23,6 @@ export function Header() {
           </Link>
 
           <div className="hidden md:flex items-center gap-8">
-            <Link href="#como-funciona" className="text-[var(--muted)] hover:text-[var(--fg)] transition-colors text-sm font-medium">Cómo funciona</Link>
             <Link href="#bogota" className="text-[var(--muted)] hover:text-[var(--fg)] transition-colors text-sm font-medium">Bogotá</Link>
             <Link href="#waitlist" className="btn-primary text-sm py-3 px-6 inline-flex items-center justify-center">Únete a la lista</Link>
           </div>
@@ -41,13 +40,6 @@ export function Header() {
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
         <div className="fixed inset-0 z-40 bg-[var(--bg)]/95 backdrop-blur-xl flex flex-col items-center justify-center gap-8 md:hidden">
-          <Link
-            href="#como-funciona"
-            onClick={() => setIsMobileMenuOpen(false)}
-            className="text-2xl font-medium text-[var(--fg)] hover:text-[var(--accent)] transition-colors"
-          >
-            Cómo funciona
-          </Link>
           <Link
             href="#bogota"
             onClick={() => setIsMobileMenuOpen(false)}

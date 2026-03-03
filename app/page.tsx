@@ -2,7 +2,6 @@ import { Header } from "@/components/header"
 import { Hero } from "@/components/hero"
 import { Features } from "@/components/features"
 import { BogotaSection } from "@/components/bogota"
-import { HowItWorks } from "@/components/how-it-works"
 import { Waitlist } from "@/components/waitlist"
 import { Footer } from "@/components/footer"
 import { BackgroundEffects } from "@/components/background-effects"
@@ -103,7 +102,6 @@ export default function Home() {
         <Hero />
         <Features />
         <BogotaSection />
-        <HowItWorks />
         <Waitlist />
         <Footer />
       </main>
