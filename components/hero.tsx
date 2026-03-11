@@ -80,7 +80,7 @@ export function Hero() {
               >
                 <div className="transition-transform duration-300 hover:scale-[1.02] origin-bottom animate-float-delay">
                   <img
-                    src="/home.png"
+                    src="https://life2food-images.s3.us-east-2.amazonaws.com/home.png"
                     alt="Pantalla de inicio de la app"
                     className="w-full h-auto"
                     draggable={false}
@@ -91,7 +91,7 @@ export function Hero() {
               {/* Main Phone Center */}
               <div className="relative z-10 w-[250px] sm:w-[320px] lg:w-[400px] flex-shrink-0 transition-transform duration-300 hover:scale-[1.02] animate-float drop-shadow-2xl">
                 <img
-                  src="/ecommerce.png"
+                  src="https://life2food-images.s3.us-east-2.amazonaws.com/ecommerce.png"
                   alt="Pantalla de ofertas y compra en la app"
                   className="w-full h-auto"
                   draggable={false}
@@ -105,7 +105,7 @@ export function Hero() {
               >
                 <div className="transition-transform duration-300 hover:scale-[1.02] origin-bottom animate-float-delay" style={{ animationDelay: '-4s' }}>
                   <img
-                    src="/pedido.png"
+                    src="https://life2food-images.s3.us-east-2.amazonaws.com/pedido.png"
                     alt="Pantalla de tu pedido en la app"
                     className="w-full h-auto"
                     draggable={false}
